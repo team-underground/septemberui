@@ -1,0 +1,61 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.16.0/libexec/bin/yarn.js global add @vue/cli-service-global
+
+PATH: 
+  /usr/local/opt/icu4c/sbin:/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin:/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin:/usr/local/opt/icu4c/bin:/usr/local/opt/php@7.1/sbin:/usr/local/opt/php@7.1/bin:/usr/local/opt/mysql@5.7/bin:/usr/local/opt/mysql@5.7/bin:/Users/apple/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/apple/.composer/vendor/bin:/usr/local/mongodb/bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.13.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/Users/apple/.config/yarn'
+
+npm manifest: 
+  {
+    "name": "septemberui",
+    "version": "0.0.3",
+    "description": "",
+    "main": "dist/septemberui.ssr.js",
+    "module": "dist/septemberui.esm.js",
+    "unpkg": "dist/septemberui.min.js",
+    "files": [
+      "dist/*",
+      "src/**/*.vue",
+      "!src/lib-dev.vue"
+    ],
+    "scripts": {
+      "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
+      "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
+      "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
+      "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "@rollup/plugin-alias": "^2.2.0",
+      "@rollup/plugin-buble": "^0.20.0",
+      "@rollup/plugin-replace": "^2.2.1",
+      "cross-env": "^6.0.3",
+      "minimist": "^1.2.0",
+      "rollup": "^1.26.3",
+      "rollup-plugin-commonjs": "^10.1.0",
+      "rollup-plugin-terser": "^5.1.2",
+      "rollup-plugin-vue": "5.1.1",
+      "vue": "^2.6.10",
+      "vue-template-compiler": "^2.6.10"
+    },
+    "engines": {
+      "node": ">=8"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
