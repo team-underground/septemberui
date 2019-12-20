@@ -6,29 +6,32 @@
             :for="id"
             >{{ label }}</label
         >
-        <div class="relative">
+
+        <div
+            class="tags-input relative"
+            :class="[
+                { 'border-red-400': errors.length, 'pl-12': withIcon === true },
+                classes
+            ]"
+        >
+            <span v-for="(tag, idx) in value" class="tags-input-tag" :key="idx">
+                <span>{{ tag }}</span>
+                <button
+                    type="button"
+                    class="tags-input-remove"
+                    @click="removeTag(tag)"
+                    :disabled="disabled"
+                >
+                    &times;
+                </button>
+            </span>
             <input
-                :id="id"
-                ref="input"
-                v-bind="$attrs"
-                class="px-2 py-2 h-12 leading-normal block w-full text-gray-800 bg-white font-sans rounded-lg text-left appearance-none outline-none"
-                :class="[
-                    {
-                        'border-red-400': errors.length,
-                        'pl-12': withIcon === true
-                    },
-                    classes
-                ]"
-                :type="type"
-                :value="value"
-                @input="$emit('input', $event.target.value)"
-                @keydown="$emit('keydown', $event)"
-                @blur="$emit('blur', $event)"
-                @keyup="$emit('keyup', $event)"
+                class="tags-input-text"
+                :placeholder="placeholder"
+                @keydown.enter.prevent="addTag"
+                v-model="newTag"
+                :readonly="disabled"
             />
-            <div v-if="errors.length" class="text-red-600 mt-1 text-sm">
-                {{ errors[0] }}
-            </div>
 
             <svg
                 class="absolute text-red-600 fill-current"
@@ -51,13 +54,14 @@
                 <slot name="icon"></slot>
             </div>
         </div>
+        <div v-if="errors.length" class="text-red-600 mt-1 text-sm">
+            {{ errors[0] }}
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    inheritAttrs: false,
-
     props: {
         id: {
             type: String,
@@ -65,11 +69,11 @@ export default {
                 return `text-input-${this._uid}`;
             }
         },
-        type: {
-            type: String,
-            default: "text"
+        disabled: {
+            type: Boolean,
+            default: false
         },
-        value: String,
+        value: Array,
         label: String,
         errors: {
             type: Array,
@@ -79,24 +83,36 @@ export default {
             type: Boolean,
             default: false
         },
-        bordered: {
-            type: Boolean,
-            default: true
+        placeholder: {
+            type: String,
+            default: "Add a tag"
         }
+    },
+
+    data() {
+        return {
+            newTag: ""
+        };
     },
 
     methods: {
-        focus() {
-            this.$refs.input.focus();
+        addTag() {
+            if (
+                this.newTag.trim().length === 0 ||
+                this.value.includes(this.newTag.trim())
+            ) {
+                return;
+            }
+            this.$emit("input", [...this.value, this.newTag.trim()]);
+            this.newTag = "";
         },
-        select() {
-            this.$refs.input.select();
-        },
-        setSelectionRange(start, end) {
-            this.$refs.input.setSelectionRange(start, end);
+        removeTag(tag) {
+            this.$emit(
+                "input",
+                this.value.filter(t => t !== tag)
+            );
         }
     },
-
     computed: {
         classes() {
             return {
