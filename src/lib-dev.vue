@@ -1,9 +1,15 @@
 <script>
-import { Alert } from "@/entry";
+import { Alert, DateInput } from "@/entry";
 export default {
 	name: "SeptemberuiLibDev", // vue library dev component
 	components: {
-		Alert
+		Alert,
+		DateInput
+	},
+	data() {
+		return {
+			date: "16/12/2019"
+		};
 	}
 };
 </script>
@@ -11,6 +17,7 @@ export default {
 <template>
 	<div class="septemberui-lib-dev">
 		<alert>asdjjjk</alert>
+		<date-input v-model="date" min-date="2019-12-15" max-date="2019-12-20"></date-input>
 	</div>
 </template>
 

@@ -50,7 +50,8 @@ const external = [
   "vue-prism-editor",
   "pikaday",
   "quill",
-  "autosize"
+  "autosize",
+  "moment"
 ];
 
 // UMD/IIFE shared settings: output.globals
