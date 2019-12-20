@@ -33,7 +33,11 @@ const baseConfig = {
         isProduction: true
       }
     },
-    postVue: [buble()]
+    postVue: [
+      buble({
+        transforms: { forOf: false }
+      })
+    ]
   }
 };
 
@@ -42,6 +46,11 @@ const baseConfig = {
 const external = [
   // list external dependencies, exactly the way it is written in the import statement.
   // eg. 'jquery'
+  "prismjs",
+  "vue-prism-editor",
+  "pikaday",
+  "quill",
+  "autosize"
 ];
 
 // UMD/IIFE shared settings: output.globals
@@ -49,6 +58,10 @@ const external = [
 const globals = {
   // Provide global variable names to replace your external imports
   // eg. jquery: '$'
+  "vue-prism-editor": "PrismEditor",
+  pikaday: "pikaday",
+  quill: "Quill",
+  autosize: "autosize"
 };
 
 // Customize configs for individual targets
