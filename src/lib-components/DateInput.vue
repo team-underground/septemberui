@@ -18,7 +18,10 @@
 				@change="change"
 				@keyup="change"
 			/>
-			<div v-if="errors.length" class="text-red-600 mt-1 text-sm">{{ errors[0] }}</div>
+			<div
+				v-if="errors.length"
+				class="text-red-600 mt-1 text-sm"
+			>{{ errors[0] }}</div>
 
 			<svg
 				class="absolute text-red-600 fill-current"
@@ -29,9 +32,7 @@
 				height="24"
 				viewBox="0 0 24 24"
 			>
-				<path
-					d="M11.953,2C6.465,2,2,6.486,2,12s4.486,10,10,10s10-4.486,10-10S17.493,2,11.953,2z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z"
-				/>
+				<path d="M11.953,2C6.465,2,2,6.486,2,12s4.486,10,10,10s10-4.486,10-10S17.493,2,11.953,2z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z" />
 			</svg>
 
 			<svg
@@ -42,9 +43,7 @@
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 20 20"
 			>
-				<path
-					d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z"
-				/>
+				<path d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z" />
 			</svg>
 		</div>
 	</div>
@@ -60,7 +59,7 @@ export default {
 		id: {
 			type: String,
 			default() {
-				return `text-input-${this._uid}`;
+				return `date-input-${this._uid}`;
 			}
 		},
 		value: String,
@@ -171,3 +170,106 @@ export default {
 	}
 };
 </script>
+
+<style lang="css">
+.date-input {
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 1rem;
+	z-index: 2000;
+	margin: 3px 0 0 0;
+	border-top: 1px solid #eee;
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+		0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.date-input.is-hidden {
+	display: none;
+}
+.date-input .pika-title {
+	padding: 0.5rem;
+	width: 100%;
+	text-align: center;
+}
+.date-input .pika-prev,
+.date-input .pika-next {
+	margin-top: 0;
+	padding: 0.25rem 0;
+	cursor: pointer;
+	color: #4299e1;
+}
+.date-input .pika-prev:hover,
+.date-input .pika-next:hover {
+	text-decoration: underline;
+}
+.date-input .pika-prev {
+	float: left;
+}
+.date-input .pika-next {
+	float: right;
+}
+.date-input .pika-label {
+	display: inline-block;
+	font-size: 0;
+}
+.date-input .pika-select-month,
+.date-input .pika-select-year {
+	display: inline-block;
+	border: 1px solid #ddd;
+	color: #444;
+	background-color: #fff;
+	border-radius: 10px;
+	font-size: 0.9rem;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+	appearance: none;
+}
+.date-input .pika-select-month:focus,
+.date-input .pika-select-year:focus {
+	border-color: #cbd5e0;
+	outline: none;
+}
+.date-input .pika-select-month {
+	margin-right: 0.25em;
+}
+.date-input table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.date-input table th {
+	width: 2em;
+	height: 2em;
+	font-weight: normal;
+	color: #718096;
+	text-align: center;
+}
+.date-input table th abbr {
+	text-decoration: none;
+}
+.date-input table td {
+	padding: 2px;
+}
+.date-input table td button {
+	width: 2em;
+	height: 2em;
+	text-align: center;
+	color: #555;
+	border-radius: 10px;
+}
+.date-input table td button:hover {
+	background-color: #bee3f8;
+}
+.date-input table td.is-today button {
+	background-color: #90cdf4;
+}
+.date-input table td.is-selected button {
+	background-color: #3182ce;
+}
+.date-input table td.is-selected button {
+	color: white;
+}
+.date-input table td.is-selected button:hover {
+	color: white;
+}
+</style>
