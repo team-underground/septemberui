@@ -2,9 +2,16 @@
   "name": "septemberui",
   "author": {
     "name": "Mithicher Baro",
-    "email": "mithicher.sumatoglobal@gmail.com"
+    "email": "mithnehu@gmail.com"
   },
-  "version": "0.0.7",
+  "keywords": [
+    "tailwindcss",
+    "vue",
+    "septemberui",
+    "vue components",
+    "tailwind components"
+  ],
+  "version": "0.0.8",
   "description": "Component library made with vuejs and tailwindcss",
   "main": "dist/septemberui.ssr.js",
   "module": "dist/septemberui.esm.js",
@@ -47,5 +54,6 @@
   },
   "engines": {
     "node": ">=8"
-  }
+  },
+  "homepage": "http://september-ui.herokuapp.com/"
 }

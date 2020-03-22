@@ -4,7 +4,7 @@
 		:href="to"
 		class="border-b-2"
 		:class="[display, {
-            'text-blue-600 border-blue-200 hover:text-blue-700 hover:border-blue-400': color == 'blue',
+            'text-orange-600 border-orange-200 hover:text-orange-700 hover:border-orange-400': color == 'orange',
             'text-blue-600 border-blue-200 hover:text-blue-700 hover:border-blue-400': color == 'blue'
         }]"
 	>
