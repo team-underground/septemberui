@@ -17,7 +17,7 @@ export { default as FileInput } from "./FileInput.vue";
 export { default as Heading } from "./Heading.vue";
 // export { default as Icon } from "./Icon.vue";
 export { default as LinkTo } from "./LinkTo.vue";
-// export { default as List } from "./List.vue";
+export { default as List } from "./List.vue";
 // export { default as ListGroup } from "./ListGroup.vue";
 export { default as LoadingButton } from "./LoadingButton.vue";
 // export { default as LocationPicker } from "./LocationPicker.vue";

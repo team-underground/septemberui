@@ -160,12 +160,17 @@
 				<loading-button size="small">Save Changes</loading-button>
 			</template>
 		</card>
-		<accordion>
+		<accordion class="mb-6">
 			<template #title>
 				<heading size="large"> Lorem ipsum dolor sit amet.</heading>
 			</template>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, pariatur doloribus officiis dolor aperiam vero nostrum alias repellat blanditiis sit?
 		</accordion>
+		<list
+			:lists="lists"
+			unorderedListColor="text-blue-500"
+			list-css="text-gray-600 md:text-lg items-center mb-1"
+		></list>
 	</div>
 </template>
 
@@ -191,7 +196,8 @@ import {
 	FileInput,
 	Dropdown,
 	Card,
-	Accordion
+	Accordion,
+	List
 } from "@/entry";
 export default {
 	name: "SeptemberuiLibDev", // vue library dev component
@@ -216,7 +222,8 @@ export default {
 		FileInput,
 		Dropdown,
 		Card,
-		Accordion
+		Accordion,
+		List
 	},
 	data() {
 		return {
@@ -245,7 +252,13 @@ export default {
 				}
 			],
 			radioData: "Female",
-			file: null
+			file: null,
+			lists: [
+				"collect & organize valuable code snippets",
+				"access from anywhere",
+				"share with others",
+				"filter snippets by category"
+			]
 		};
 	},
 	mounted() {
